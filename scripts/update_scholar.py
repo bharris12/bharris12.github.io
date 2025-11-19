@@ -16,7 +16,17 @@ def fetch_and_update_citations():
 
     # Sort publications by year (descending)
     pubs = author['publications']
-    pubs.sort(key=lambda x: x['bib'].get('pub_year', 0), reverse=True)
+    
+    def get_pub_year(pub):
+        y = pub['bib'].get('pub_year')
+        if y is None:
+            return 0
+        try:
+            return int(y)
+        except ValueError:
+            return 0
+
+    pubs.sort(key=get_pub_year, reverse=True)
 
     html_content = ""
     
