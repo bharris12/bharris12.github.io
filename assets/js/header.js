@@ -1,6 +1,6 @@
 function changeClass() {
     element = document.getElementById("trigger");
-    if (element.className == "trigger"){
+    if (element.className == "trigger") {
         element.className = "show";
     }
     else {
