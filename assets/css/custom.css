@@ -1,6 +1,6 @@
 body {
   /* font-family: Helvetica, Arial, sans-serif; */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
@@ -43,11 +43,10 @@ a.post-preview {
 }
 
 a.post-preview:hover div.post-preview-title {
-  color: #B70B14;
+  color: #b70b14;
   text-decoration: none;
   font-weight: normal;
 }
-
 
 .post-preview-title {
   font-weight: 700;
@@ -80,7 +79,7 @@ a.post-preview:hover div.post-preview-title {
   display: inline-block;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .post-metadata {
     width: 15%;
   }
@@ -98,7 +97,7 @@ a.post-preview:hover div.post-preview-title {
 }
 
 .post-github {
-  background-color: #E1E4FF;
+  background-color: #e1e4ff;
   display: inline-block;
   font-size: 80%;
   margin-top: 10px;
@@ -114,7 +113,7 @@ a.post-github {
 
 a.post-github:hover {
   color: inherit;
-  background-color: #C7EEAA;
+  background-color: #c7eeaa;
   text-decoration: none;
 }
 
@@ -123,7 +122,7 @@ a.post-github:hover {
 }
 
 .site-title {
-  color: #FFF !important;
+  color: #fff !important;
   float: none;
 }
 
@@ -136,9 +135,8 @@ a.post-github:hover {
 }
 
 .site-footer {
-  background-color: #EEF1F5;
+  background-color: #eef1f5;
 }
-
 
 .api-pre {
   display: flex;
@@ -179,13 +177,13 @@ a.post-github:hover {
   top: 0;
   left: 0;
 
-  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-  animation: sk-bounce 2.0s infinite ease-in-out;
+  -webkit-animation: sk-bounce 2s infinite ease-in-out;
+  animation: sk-bounce 2s infinite ease-in-out;
 }
 
 .double-bounce2 {
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
 }
 
 /* 
@@ -196,28 +194,26 @@ a.post-github:hover {
 } */
 
 @-webkit-keyframes sk-bounce {
-
   0%,
   100% {
-    -webkit-transform: scale(0.0)
+    -webkit-transform: scale(0);
   }
 
   50% {
-    -webkit-transform: scale(1.0)
+    -webkit-transform: scale(1);
   }
 }
 
 @keyframes sk-bounce {
-
   0%,
   100% {
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
+    transform: scale(0);
+    -webkit-transform: scale(0);
   }
 
   50% {
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
+    transform: scale(1);
+    -webkit-transform: scale(1);
   }
 }
 
@@ -230,7 +226,7 @@ div img {
 }
 
 div:after {
-  content: '';
+  content: "";
   display: inline-block;
   width: 100%;
 }
@@ -322,4 +318,35 @@ div:after {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* Bibliography Scroll */
+.bibliography-scroll {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px; /* Avoid scrollbar covering text */
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Scrollbar for Webkit browsers */
+.bibliography-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bibliography-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.bibliography-scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.bibliography-scroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

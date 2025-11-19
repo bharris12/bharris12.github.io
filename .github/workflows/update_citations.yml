@@ -32,3 +32,16 @@ jobs:
           git config --global user.email 'action@github.com'
           git add index.html
           git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update Google Scholar citations" && git push)
+
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: Google Scholar Update - ${{ github.repository }}
+          body: The Google Scholar citations on your website have been successfully updated.
+          to: bdharris17@gmail.com
+          from: GitHub Actions <${{ secrets.MAIL_USERNAME }}>
+          secure: true

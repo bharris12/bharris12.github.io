@@ -32,6 +32,11 @@ def fetch_and_update_citations():
     
     for pub in pubs:
         # Fill the publication to get full details like journal, etc.
+        try:
+            scholarly.fill(pub)
+        except Exception as e:
+            print(f"Could not fill publication {pub['bib'].get('title')}: {e}")
+            continue
         # Note: filling every publication might be slow and hit rate limits.
         # For a simple list, the basic info might be enough, but 'journal' is often missing in the basic list.
         # Let's try to use the basic info first, and only fill if necessary.
@@ -42,6 +47,10 @@ def fetch_and_update_citations():
         # scholarly returns authors as a string "A Author, B Author" or list? 
         # It usually returns a string in the 'bib' dict.
         authors = pub['bib'].get('author', 'Unknown Authors')
+        
+        # Exclude publications by the other Benjamin Harris (co-authored with Joel Wiesner)
+        if "Joel Wiesner" in authors:
+            continue
         
         # Highlight the user's name
         authors = authors.replace("Benjamin D Harris", "<b>Benjamin D. Harris</b>")
